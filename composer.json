@@ -37,5 +37,11 @@
     "bin": [
         "bin/bav-update.php",
         "bin/bav-install.php"
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bav-php/php-index"
+        }
     ]
 }
