@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Validator\Validators;
 
 /**
  * Copyright (C) 2008  Markus Malkusch <markus@malkusch.de>

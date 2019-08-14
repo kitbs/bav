@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Encoding;
 
 /**
  * This class provides methods for any encoded strings.

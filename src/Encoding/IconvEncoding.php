@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Encoding;
 
 /**
  * Wrapper for the iconv Functions. If you use this wrapper

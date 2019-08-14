@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Configuration;
 
 /**
  * Helper for locating a BAV configuration.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\ORM;
 
 /**
  * Entity for storing metadata for an ORM backend.

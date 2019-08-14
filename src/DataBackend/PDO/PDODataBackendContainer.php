@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\PDO;
 
 /**
  * Container for PDODataBackend objects.

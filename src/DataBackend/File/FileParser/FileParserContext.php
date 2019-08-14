@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\File\FileParser;
 
 /**
  * This class helps Databackend_File to know the interval of lines which

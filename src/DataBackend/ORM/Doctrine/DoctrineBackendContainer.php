@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\ORM\Doctrine;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;

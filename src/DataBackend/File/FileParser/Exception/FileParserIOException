@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\File\FileParser\Exception;
 
 /**
  * Copyright (C) 2006  Markus Malkusch <markus@malkusch.de>

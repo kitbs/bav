@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Encoding;
 
 /**
  * This wrapper supports PHP's built-in functions for the ISO-8859-* encodings.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Configuration;
 
 /**
  * Registry for the configuration
@@ -14,7 +14,7 @@ namespace Malkusch\BAV;
  * <code>
  * <?php
  *
- * namespace Malkusch\BAV;
+ * namespace Malkusch\BAV\Configuration;
  *
  * $configuration = new DefaultConfiguration();
  *

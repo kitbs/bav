@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\File\FileParser;
 
 /**
  * This class is responsable for I/O and formating which helps the FileDataBackend.

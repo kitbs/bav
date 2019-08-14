@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Bank;
 
 /**
  * A bank can validate a bank account (Bank->isValid(String $account)) and

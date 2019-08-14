@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\Validator;
 
 /**
  * This interfaces marks validators which depend on the bank.

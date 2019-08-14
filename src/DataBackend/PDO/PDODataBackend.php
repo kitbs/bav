@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\PDO;
 
 /**
  * Use any DBS as backend. In addition to the DataBackend methods you

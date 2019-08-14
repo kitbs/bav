@@ -1,6 +1,6 @@
 <?php
 
-namespace Malkusch\BAV;
+namespace Malkusch\BAV\DataBackend\File;
 
 use malkusch\index\FixedSizeIndex;
 use malkusch\index\IndexException;
