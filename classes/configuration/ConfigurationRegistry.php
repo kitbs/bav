@@ -36,7 +36,7 @@ class ConfigurationRegistry
 {
 
     const BAV_PATH = "/../../configuration.php";
-    
+
     const INCLUDE_PATH = "bav/configuration.php";
 
     /**
@@ -62,7 +62,7 @@ class ConfigurationRegistry
         $configuration = $locator->locate();
         if ($configuration == null) {
             $configuration = new DefaultConfiguration();
-            
+
         }
         self::setConfiguration($configuration);
     }

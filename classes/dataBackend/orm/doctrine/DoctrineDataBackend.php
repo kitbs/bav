@@ -40,10 +40,10 @@ class DoctrineDataBackend extends SQLDataBackend
             }
             $bank->setDataBackend($this);
             return $bank;
-            
+
         } catch (ORMException $e) {
             throw new DataBackendException($e);
-            
+
         }
     }
 
@@ -76,7 +76,7 @@ class DoctrineDataBackend extends SQLDataBackend
         $lastModified = $this->em->find("malkusch\bav\MetaData", MetaData::LASTMODIFIED);
         if ($lastModified == null) {
             throw new DataBackendException();
-            
+
         }
         return $lastModified->getValue();
     }
@@ -86,7 +86,7 @@ class DoctrineDataBackend extends SQLDataBackend
         // Return the Doctrine proxy
         return $bank->getMainAgency();
     }
-    
+
     private function getClassesMetadata()
     {
         return array(
@@ -101,7 +101,7 @@ class DoctrineDataBackend extends SQLDataBackend
         $tool = new SchemaTool($this->em);
         $classes = $this->getClassesMetadata();
         $tool->createSchema($classes);
-        
+
         $this->update();
     }
 
@@ -110,10 +110,10 @@ class DoctrineDataBackend extends SQLDataBackend
         try {
             $this->em->find("malkusch\bav\MetaData", MetaData::LASTMODIFIED);
             return true;
-            
+
         } catch (DBALException $e) {
             return false;
-            
+
         }
     }
 
@@ -128,7 +128,7 @@ class DoctrineDataBackend extends SQLDataBackend
     public function update()
     {
         $this->em->transactional(function(EntityManager $em) {
-            
+
             // Download data
             $fileUtil = new FileUtil();
             $fileBackend = new FileDataBackend(tempnam($fileUtil->getTempDirectory(), 'bav'));
@@ -142,12 +142,12 @@ class DoctrineDataBackend extends SQLDataBackend
             foreach ($fileBackend->getAllBanks() as $bank) {
                 try {
                     $em->persist($bank);
-                    
+
                     $agencies = $bank->getAgencies();
                     $agencies[] = $bank->getMainAgency();
                     foreach ($agencies as $agency) {
                         $em->persist($agency);
-                        
+
                     }
                 } catch (NoMainAgencyException $e) {
                     trigger_error(
@@ -155,12 +155,12 @@ class DoctrineDataBackend extends SQLDataBackend
                     );
                 }
             }
-            
+
             // last modified
             $lastModified = $em->find("malkusch\bav\MetaData", MetaData::LASTMODIFIED);
             if ($lastModified == null) {
                 $lastModified = new MetaData();
-                
+
             }
             $lastModified->setName(MetaData::LASTMODIFIED);
             $lastModified->setValue(time());
@@ -173,7 +173,7 @@ class DoctrineDataBackend extends SQLDataBackend
         parent::free();
         $this->em->clear();
     }
-    
+
     /**
      * You may use an arbitrary SQL statement to receive Agency objects.
      * Your statement should at least return the id of the agencies.
@@ -191,7 +191,7 @@ class DoctrineDataBackend extends SQLDataBackend
         $em = $this->em;
         $this->em->transactional(function() use (&$agencies, $sql, $backend, $em) {
             $stmt = $em->getConnection()->executeQuery($sql);
-            
+
             foreach ($stmt as $result) {
                 if (!array_key_exists('id', $result)) {
                     throw new MissingAttributesDataBackendIOException();
@@ -200,7 +200,7 @@ class DoctrineDataBackend extends SQLDataBackend
                 $id = $result["id"];
                 $agency = $em->find("malkusch\bav\Agency", $id);
                 $agencies[] = $agency;
-                
+
                 $agency->getBank()->setDataBackend($backend);
 
             }

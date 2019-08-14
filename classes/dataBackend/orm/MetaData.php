@@ -12,19 +12,19 @@ namespace malkusch\bav;
  */
 class MetaData
 {
-    
+
     const LASTMODIFIED = "lastModified";
-    
+
     /**
      * @var String
      */
     private $name;
-    
+
     /**
      * @var String
      */
     private $value;
-    
+
     /**
      * Sets the name
      *
@@ -34,7 +34,7 @@ class MetaData
     {
         $this->name = $name;
     }
-    
+
     /**
      * Gets the name
      *
@@ -44,7 +44,7 @@ class MetaData
     {
         return $this->name;
     }
-    
+
     /**
      * Sets the value
      *
@@ -54,7 +54,7 @@ class MetaData
     {
         $this->value = $value;
     }
-    
+
     /**
      * Gets the value
      *

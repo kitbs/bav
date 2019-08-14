@@ -16,9 +16,9 @@ use \malkusch\index\IndexException;
  */
 class FileDataBackend extends DataBackend
 {
-    
+
     // @codingStandardsIgnoreStart
-    const DOWNLOAD_URI = "http://www.bundesbank.de/Redaktion/DE/Standardartikel/Aufgaben/Unbarer_Zahlungsverkehr/bankleitzahlen_download.html";
+    const DOWNLOAD_URI = "https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/bankleitzahlen/download-bankleitzahlen-602592";
     // @codingStandardsIgnoreEnd
 
     /**
@@ -30,7 +30,7 @@ class FileDataBackend extends DataBackend
      * @var FileParser
      */
     private $parser;
-    
+
     /**
      * @var Index_FixedSize
      */
@@ -49,7 +49,7 @@ class FileDataBackend extends DataBackend
         $this->parser = new FileParser($file);
         $this->fileUtil = new FileUtil();
     }
-    
+
     /**
      * @return FixedSizeIndex
      */
@@ -61,7 +61,7 @@ class FileDataBackend extends DataBackend
                 FileParser::BANKID_OFFSET,
                 FileParser::BANKID_LENGTH
             );
-            
+
         }
         return $this->index;
     }
@@ -245,7 +245,7 @@ class FileDataBackend extends DataBackend
     {
         try {
             $result = $this->getIndex()->search($bankID);
-        
+
             if ($result == null) {
                 throw new BankNotFoundException($bankID);
 
@@ -261,7 +261,7 @@ class FileDataBackend extends DataBackend
 
         } catch (IndexException $e) {
             throw new DataBackendIOException($e->getMessage(), $e->getCode(), $e);
-            
+
         }
     }
 
@@ -419,7 +419,7 @@ class FileDataBackend extends DataBackend
         }
         return $agencies;
     }
-    
+
     public function free()
     {
         parent::free();

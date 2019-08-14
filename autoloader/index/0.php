@@ -4,7 +4,7 @@
 
 /**
  * Class index for autoloading
- * 
+ *
  * This class index was generated automatically.
  * Don't edit this file. Changes might get lost when
  * generating a new index.

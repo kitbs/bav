@@ -6,7 +6,7 @@
 
     <entity name="malkusch\bav\Bank" table="bav_bank">
         <id name="bankID" type="integer" column="id" />
-        
+
         <field name="validationType" type="string" length="2" column="validator" />
 
         <one-to-one field="mainAgency" target-entity="Agency">

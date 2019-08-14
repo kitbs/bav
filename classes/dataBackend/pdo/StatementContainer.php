@@ -29,7 +29,7 @@ class StatementContainer
     {
         $this->pdo = $pdo;
     }
-    
+
     /**
      * Returns a PDOStatement
      *

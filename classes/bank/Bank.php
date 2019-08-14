@@ -127,7 +127,7 @@ class Bank
         }
         return $this->agencies;
     }
-    
+
     /**
      * @internal
      */

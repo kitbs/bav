@@ -11,7 +11,7 @@ namespace malkusch\bav;
  */
 abstract class SQLDataBackend extends DataBackend
 {
-    
+
     /**
      * You may use an arbitrary SQL statement to receive Agency objects.
      * Your statement should at least return the id of the agencies.

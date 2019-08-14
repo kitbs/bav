@@ -19,12 +19,12 @@ use Doctrine\ORM\Tools\Setup;
  */
 class DoctrineBackendContainer extends DataBackendContainer
 {
-    
+
     /**
      * @var EntityManager
      */
     private $em;
-    
+
     /**
      * Return the paths to the XML-Mappings
      *
@@ -34,7 +34,7 @@ class DoctrineBackendContainer extends DataBackendContainer
     {
         return array(__DIR__ . "/mapping/");
     }
-    
+
     /**
      * Builds a container for a connection.
      *
@@ -49,7 +49,7 @@ class DoctrineBackendContainer extends DataBackendContainer
         $entityManager = EntityManager::create($connection, $config);
         return new self($entityManager);
     }
-    
+
     /**
      * Injects the EntityManager
      */
@@ -57,7 +57,7 @@ class DoctrineBackendContainer extends DataBackendContainer
     {
         $this->em = $entityManager;
     }
-    
+
     /**
      * Gets the EntityManager
      *
@@ -67,7 +67,7 @@ class DoctrineBackendContainer extends DataBackendContainer
     {
         return $this->em;
     }
-    
+
     protected function makeDataBackend()
     {
         return new DoctrineDataBackend($this->em);

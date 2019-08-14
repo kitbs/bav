@@ -11,7 +11,7 @@ namespace malkusch\bav;
  */
 class ValidatorFactory
 {
-    
+
     /**
      * Builds a validator for a bank.
      *

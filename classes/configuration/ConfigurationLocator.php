@@ -12,12 +12,12 @@ namespace malkusch\bav;
  */
 class ConfigurationLocator
 {
-    
+
     /**
      * @var string[]
      */
     private $paths = array();
-    
+
     /**
      * Sets the paths where a location is expected.
      *
@@ -42,7 +42,7 @@ class ConfigurationLocator
             $resolvedPath = stream_resolve_include_path($path);
             if (!$resolvedPath) {
                 continue;
-                
+
             }
             $configuration = require $resolvedPath;
             if (!$configuration instanceof Configuration) {
@@ -52,7 +52,7 @@ class ConfigurationLocator
 
             }
             return $configuration;
-            
+
         }
         return null;
     }

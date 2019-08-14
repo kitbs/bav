@@ -186,7 +186,7 @@ abstract class DataBackend
         $agencies = $this->getBICAgencies($bic);
         return !empty($agencies);
     }
-    
+
     /**
      * Frees memory of cached instances
      */

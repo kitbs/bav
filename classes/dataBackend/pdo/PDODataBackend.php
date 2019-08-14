@@ -260,7 +260,7 @@ class PDODataBackend extends SQLDataBackend
                     FOREIGN KEY (bank) REFERENCES {$this->prefix}bank(id)
                 )$createOptions"
             );
-            
+
             try {
                 $this->pdo->exec("CREATE INDEX bic ON {$this->prefix}agency (bic)");
 
@@ -544,7 +544,7 @@ class PDODataBackend extends SQLDataBackend
                         "SELECT count(*) FROM sqlite_master
                             WHERE type='table' AND name = '{$this->prefix}meta'";
                     break;
-                
+
                 default:
                     $query =
                         "SELECT CASE WHEN EXISTS(
@@ -552,9 +552,9 @@ class PDODataBackend extends SQLDataBackend
                                 WHERE table_name='{$this->prefix}meta')
                         ) THEN 1 ELSE 0 END";
                     break;
-                
+
             }
-            
+
             $stmt = $this->statementContainer->prepare($query);
             $stmt->execute();
             $result = $stmt->fetch();
@@ -585,7 +585,7 @@ class PDODataBackend extends SQLDataBackend
                 "SELECT bic FROM {$this->prefix}agency WHERE bic = :bic GROUP BY (bic)"
             );
             $stmt->execute(array(":bic" => $bic));
-            
+
             $rows = $stmt->fetchAll();
             return !empty($rows);
 
@@ -628,7 +628,7 @@ class PDODataBackend extends SQLDataBackend
 
         }
     }
-        
+
     public function free()
     {
         parent::free();

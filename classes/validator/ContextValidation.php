@@ -16,22 +16,22 @@ namespace malkusch\bav;
  */
 class ContextValidation
 {
-    
+
     /**
      * @var bool
      */
     private $initialized = false;
-    
+
     /**
      * @var DataBackend
      */
     private $backend;
-    
+
     /**
      * @var Bank
      */
     private $bank;
-    
+
     /**
      * Injects the backend.
      */
@@ -39,7 +39,7 @@ class ContextValidation
     {
         $this->backend = $backend;
     }
-    
+
     /**
      * Returns true if a bank exists.
      *
@@ -56,14 +56,14 @@ class ContextValidation
             $this->initialized = true;
             $this->bank = $this->backend->getBank($bankID);
             return true;
-            
+
         } catch (BankNotFoundException $e) {
             $this->bank = null;
             return false;
-            
+
         }
     }
-    
+
     /**
      * Returns true if the account is valid for the current context.
      *
@@ -80,18 +80,18 @@ class ContextValidation
     {
         if (!$this->initialized) {
             throw new InvalidContextException("You have to call isValidBank() before.");
-            
+
         }
-        
+
         // No valid bank makes every account valid
         if ($this->bank == null) {
             return true;
-            
+
         }
-        
+
         return $this->bank->isValid($account);
     }
-    
+
     /**
      * Returns the third call back parameter for filter_var() for validating
      * a bank.
@@ -109,7 +109,7 @@ class ContextValidation
             return $validation->isValidBank($bankID);
         });
     }
-    
+
     /**
      * Returns the third call back parameter for filter_var() for validating
      * a bank account.

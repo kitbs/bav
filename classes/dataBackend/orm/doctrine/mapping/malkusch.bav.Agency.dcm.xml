@@ -6,19 +6,19 @@
 
     <entity name="malkusch\bav\Agency" table="bav_agency">
         <id name="id" type="integer" />
-        
+
         <field name="name" type="string" length="58" />
         <field name="postcode" type="string" length="5" />
         <field name="city" type="string" length="35" />
         <field name="shortTerm" type="string" length="27" />
-        
+
         <many-to-one field="bank" target-entity="Bank">
             <join-column name="bank" referenced-column-name="id" on-delete="CASCADE" />
         </many-to-one>
         
         <field name="pan" type="string" length="5" nullable="true" />
         <field name="bic" type="string" length="11" nullable="true" />
-        
+
         <indexes>
             <index columns="bic"/>
         </indexes>

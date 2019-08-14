@@ -73,7 +73,7 @@ class FileParser
      * @var resource
      */
     private $fp;
-    
+
     /**
      * @var string
      */
@@ -150,7 +150,7 @@ class FileParser
             );
 
         }
-        
+
         // size + 1, because the last line has no line break
         $this->lines = floor(($filesize + 1) / $this->lineLength);
     }

@@ -100,7 +100,7 @@ class Configuration
     {
         return $this->backendContainer;
     }
-    
+
     /**
      * Sets the encoding.
      */
