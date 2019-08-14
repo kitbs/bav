@@ -53,7 +53,7 @@ class ValidatorD4 extends Validator
 
     protected function validate()
     {
-        $this->transformedAccount = self::TRANSFORMATION.$this->account;
+        $this->transformedAccount = self::TRANSFORMATION . $this->account;
     }
 
     /**

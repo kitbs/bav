@@ -149,7 +149,7 @@ class Validator57 extends Validator
 
     protected function getResult()
     {
-        return ! is_null($this->validator) && $this->validator->isValid($this->account);
+        return !is_null($this->validator) && $this->validator->isValid($this->account);
     }
 
     /**
@@ -157,7 +157,7 @@ class Validator57 extends Validator
      */
     private function getMode()
     {
-        $firstTwo  = substr($this->account, 0, 2);
+        $firstTwo = substr($this->account, 0, 2);
 
         if ($firstTwo == '00') {
             return 0;

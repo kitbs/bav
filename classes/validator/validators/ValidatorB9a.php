@@ -40,7 +40,7 @@ class ValidatorB9a extends WeightedIterationValidator
     protected function getResult()
     {
         $result = $this->accumulator % 10;
-        if ((string) $result === $this->getCheckNumber()) {
+        if ((string)$result === $this->getCheckNumber()) {
             return true;
 
         }
@@ -49,6 +49,6 @@ class ValidatorB9a extends WeightedIterationValidator
             $result -= 10;
 
         }
-        return (string) $result === $this->getCheckNumber();
+        return (string)$result === $this->getCheckNumber();
     }
 }

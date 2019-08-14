@@ -39,7 +39,7 @@ class Validator26 extends Validator06
         parent::init($account);
 
         if (substr($this->account, 0, 2) === '00') {
-            $this->account = substr($this->account, 2).'00';
+            $this->account = substr($this->account, 2) . '00';
 
         }
     }

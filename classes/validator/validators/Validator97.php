@@ -38,7 +38,7 @@ class Validator97 extends Validator
 
     protected function validate()
     {
-        $account = (int) ltrim(substr($this->account, 0, -1), '0');
+        $account = (int)ltrim(substr($this->account, 0, -1), '0');
         $this->result = $account - (int)($account / 11) * 11;
 
     }
@@ -49,6 +49,6 @@ class Validator97 extends Validator
     protected function getResult()
     {
         return strlen(ltrim($this->account, '0')) >= 5
-            && $this->result === (int) $this->getChecknumber();
+            && $this->result === (int)$this->getChecknumber();
     }
 }

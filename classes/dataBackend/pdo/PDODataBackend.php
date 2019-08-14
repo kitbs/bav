@@ -79,8 +79,8 @@ class PDODataBackend extends SQLDataBackend
             $agencies = array();
 
             foreach ($this->pdo->query($sql) as $result) {
-                if (! $this->isValidAgencyResult($result)) {
-                    if (! array_key_exists('id', $result)) {
+                if (!$this->isValidAgencyResult($result)) {
+                    if (!array_key_exists('id', $result)) {
                         throw new MissingAttributesDataBackendIOException();
 
                     }
@@ -96,7 +96,7 @@ class PDODataBackend extends SQLDataBackend
 
                     }
                 }
-                if (! array_key_exists('bank', $result)) {
+                if (!array_key_exists('bank', $result)) {
                     $stmt = $this->statementContainer->prepare(
                         "SELECT bank FROM {$this->prefix}agency
                             WHERE id = :agency"
@@ -137,12 +137,12 @@ class PDODataBackend extends SQLDataBackend
             $fileBackend = new FileDataBackend(tempnam($fileUtil->getTempDirectory(), 'bav'));
             $fileBackend->install();
 
-            $insertBank     = $this->pdo->prepare(
+            $insertBank = $this->pdo->prepare(
                 "INSERT INTO {$this->prefix}bank
                     (id, validator, mainAgency)
                     VALUES(:bankID, :validator, :mainAgency)"
             );
-            $insertAgency   = $this->pdo->prepare(
+            $insertAgency = $this->pdo->prepare(
                 "INSERT INTO {$this->prefix}agency
                     (id, name, postcode, city, shortTerm, pan, bic, bank)
                     VALUES (:id, :name, :postcode, :city, :shortTerm, :pan, :bic, :bank)"
@@ -249,13 +249,13 @@ class PDODataBackend extends SQLDataBackend
             $this->pdo->exec(
                 "CREATE TABLE {$this->prefix}agency(
                     id          int primary key,
-                    name        varchar(".FileParser::NAME_LENGTH.")        NOT NULL,
-                    postcode    varchar(".FileParser::POSTCODE_LENGTH.")    NOT NULL,
-                    city        varchar(".FileParser::CITY_LENGTH.")        NOT NULL,
-                    shortTerm   varchar(".FileParser::SHORTTERM_LENGTH.")   NOT NULL,
+                    name        varchar(" . FileParser::NAME_LENGTH . ")        NOT NULL,
+                    postcode    varchar(".FileParser::POSTCODE_LENGTH . ")    NOT NULL,
+                    city        varchar(".FileParser::CITY_LENGTH . ")        NOT NULL,
+                    shortTerm   varchar(".FileParser::SHORTTERM_LENGTH . ")   NOT NULL,
                     bank        int                                             NOT NULL,
-                    pan         char(".FileParser::PAN_LENGTH.")            NULL,
-                    bic         varchar(".FileParser::BIC_LENGTH.")         NULL,
+                    pan         char(".FileParser::PAN_LENGTH . ")            NULL,
+                    bic         varchar(".FileParser::BIC_LENGTH . ")         NULL,
 
                     FOREIGN KEY (bank) REFERENCES {$this->prefix}bank(id)
                 )$createOptions"
@@ -398,7 +398,7 @@ class PDODataBackend extends SQLDataBackend
      */
     private function getBankObject(Array $fetchedResult)
     {
-        if (! $this->isValidBankResult($fetchedResult)) {
+        if (!$this->isValidBankResult($fetchedResult)) {
             throw new MissingAttributesDataBackendIOException();
 
         }
@@ -411,11 +411,11 @@ class PDODataBackend extends SQLDataBackend
      */
     private function getAgencyObject(Bank $bank, Array $fetchedResult)
     {
-        if (! $this->isValidAgencyResult($fetchedResult)) {
+        if (!$this->isValidAgencyResult($fetchedResult)) {
             throw new MissingAttributesDataBackendIOException();
 
         }
-        if (! array_key_exists($fetchedResult['id'], $this->agencies)) {
+        if (!array_key_exists($fetchedResult['id'], $this->agencies)) {
             $this->agencies[$fetchedResult['id']] = new Agency(
                 $fetchedResult['id'],
                 $bank,
@@ -587,7 +587,7 @@ class PDODataBackend extends SQLDataBackend
             $stmt->execute(array(":bic" => $bic));
             
             $rows = $stmt->fetchAll();
-            return ! empty($rows);
+            return !empty($rows);
 
         } catch (\PDOException $e) {
             $stmt->closeCursor();

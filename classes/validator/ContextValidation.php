@@ -78,7 +78,7 @@ class ContextValidation
      */
     public function isValidAccount($account)
     {
-        if (! $this->initialized) {
+        if (!$this->initialized) {
             throw new InvalidContextException("You have to call isValidBank() before.");
             
         }
@@ -105,7 +105,7 @@ class ContextValidation
     public function getValidBankFilterCallback()
     {
         $validation = $this;
-        return array("options" => function ($bankID) use ($validation) {
+        return array("options" => function($bankID) use ($validation) {
             return $validation->isValidBank($bankID);
         });
     }
@@ -123,7 +123,7 @@ class ContextValidation
     public function getValidAccountFilterCallback()
     {
         $validation = $this;
-        return array("options" => function ($account) use ($validation) {
+        return array("options" => function($account) use ($validation) {
             return $validation->isValidAccount($account);
         });
     }

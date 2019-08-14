@@ -42,7 +42,7 @@ class FallbackURIPicker implements URIPicker
      */
     public function isAvailable()
     {
-        return ! empty($this->pickers);
+        return !empty($this->pickers);
     }
 
     /**

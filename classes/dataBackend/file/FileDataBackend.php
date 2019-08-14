@@ -92,7 +92,7 @@ class FileDataBackend extends DataBackend
     {
         //read the unordered bank file
         $lines = file($file);
-        if (! is_array($lines) || empty($lines)) {
+        if (!is_array($lines) || empty($lines)) {
             throw new DataBackendIOException("Could not read lines in '$file'.");
 
         }
@@ -109,7 +109,7 @@ class FileDataBackend extends DataBackend
         //write a sorted bank file atomically
         $temp    = tempnam($this->fileUtil->getTempDirectory(), "");
         $tempH   = fopen($temp, 'w');
-        if (! ($temp && $tempH)) {
+        if (!($temp && $tempH)) {
             throw new DataBackendIOException("Could not open a temporary file.");
 
         }
@@ -133,7 +133,7 @@ class FileDataBackend extends DataBackend
      */
     public function uninstall()
     {
-        if (! unlink($this->parser->getFile())) {
+        if (!unlink($this->parser->getFile())) {
             throw new DataBackendIOException();
 
         }
@@ -172,7 +172,7 @@ class FileDataBackend extends DataBackend
         foreach ($pathParts as $i => $part) {
             switch ($part) {
                 case '..':
-                    unset($pathParts[$i-1]);
+                    unset($pathParts[$i - 1]);
                     // fall-through as the current part ("..") should be removed as well.
 
                 case '.':
@@ -310,7 +310,7 @@ class FileDataBackend extends DataBackend
             $agencies = array();
             for ($line = $context->getStart(); $line <= $context->getEnd(); $line++) {
                 $content = $this->parser->readLine($line);
-                if (! $this->parser->isMainAgency($content)) {
+                if (!$this->parser->isMainAgency($content)) {
                     $agencies[] = $this->parser->getAgency($bank, $content);
 
                 }
@@ -334,7 +334,7 @@ class FileDataBackend extends DataBackend
      */
     private function defineContextInterval($bankID)
     {
-        if (! isset($this->contextCache[$bankID])) {
+        if (!isset($this->contextCache[$bankID])) {
             throw new \LogicException("The contextCache object should exist!");
 
         }
@@ -342,7 +342,7 @@ class FileDataBackend extends DataBackend
         /**
          * Find start
          */
-        if (! $context->isStartDefined()) {
+        if (!$context->isStartDefined()) {
             for ($start = $context->getLine() - 1; $start >= 0; $start--) {
                 if ($this->parser->getBankID($start) != $bankID) {
                     break;
@@ -355,7 +355,7 @@ class FileDataBackend extends DataBackend
         /**
          * Find end
          */
-        if (! $context->isEndDefined()) {
+        if (!$context->isEndDefined()) {
             for ($end = $context->getLine() + 1; $end <= $this->parser->getLines(); $end++) {
                 if ($this->parser->getBankID($end) != $bankID) {
                     break;

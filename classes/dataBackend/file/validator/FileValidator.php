@@ -51,7 +51,7 @@ class FileValidator
         }
 
         $firstLine = $parser->readLine(0);
-        if (! preg_match("/^100000001Bundesbank/", $firstLine)) {
+        if (!preg_match("/^100000001Bundesbank/", $firstLine)) {
             throw new FieldException("Get updated BAV version: first line has unexpected content: $firstLine");
 
         }

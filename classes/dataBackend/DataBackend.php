@@ -79,7 +79,7 @@ abstract class DataBackend
      */
     public function getBank($bankID)
     {
-        if (! isset($this->instances[$bankID])) {
+        if (!isset($this->instances[$bankID])) {
             $this->instances[$bankID] = $this->getNewBank($bankID);
 
         }
@@ -184,7 +184,7 @@ abstract class DataBackend
     public function isValidBIC($bic)
     {
         $agencies = $this->getBICAgencies($bic);
-        return ! empty($agencies);
+        return !empty($agencies);
     }
     
     /**

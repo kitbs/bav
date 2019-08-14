@@ -147,7 +147,7 @@ class Agency
      */
     public function hasPAN()
     {
-        return ! empty($this->pan);
+        return !empty($this->pan);
     }
 
     /**
@@ -155,7 +155,7 @@ class Agency
      */
     public function hasBIC()
     {
-        return ! empty($this->bic);
+        return !empty($this->bic);
     }
 
     /**
@@ -164,7 +164,7 @@ class Agency
      */
     public function getPAN()
     {
-        if (! $this->hasPAN()) {
+        if (!$this->hasPAN()) {
             throw new UndefinedAttributeAgencyException($this, 'pan');
 
         }
@@ -177,7 +177,7 @@ class Agency
      */
     public function getBIC()
     {
-        if (! $this->hasBIC()) {
+        if (!$this->hasBIC()) {
             throw new UndefinedAttributeAgencyException($this, 'bic');
 
         }
