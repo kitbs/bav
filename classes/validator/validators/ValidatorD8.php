@@ -57,7 +57,7 @@ class ValidatorD8 extends Validator
             return $this->validator->isValid($this->account);
 
         }
-        $set = (int) substr($this->account, 0, 3);
+        $set = (int)substr($this->account, 0, 3);
         return $set >= 1 && $set <= 9;
     }
 }

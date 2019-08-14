@@ -90,7 +90,7 @@ abstract class ValidatorIteration extends Validator
     {
         parent::init($account);
 
-        $this->accumulator  = 0;
+        $this->accumulator = 0;
     }
 
     protected function validate()

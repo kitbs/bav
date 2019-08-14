@@ -54,7 +54,7 @@ class FileParserContext
      */
     public function __construct($line)
     {
-        $this->line   = $line;
+        $this->line = $line;
     }
 
     /**
@@ -83,7 +83,7 @@ class FileParserContext
      */
     public function isStartDefined()
     {
-        return ! is_null($this->start);
+        return !is_null($this->start);
     }
 
     /**
@@ -104,7 +104,7 @@ class FileParserContext
      */
     public function isEndDefined()
     {
-        return ! is_null($this->end);
+        return !is_null($this->end);
     }
 
     /**

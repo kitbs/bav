@@ -35,7 +35,7 @@ class RegExpURIPicker implements URIPicker
             $html,
             $txtMatches
         );
-        if (! $isMatch) {
+        if (!$isMatch) {
             throw new URIPickerException("Did not find download URI");
 
         }

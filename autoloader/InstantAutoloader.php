@@ -36,7 +36,7 @@ namespace malkusch\autoloader;
  * There might be several InstantAutoloaders deployed in a project.
  * One is enough.
  */
-if (! class_exists("malkusch\autoloader\InstantAutoloader", false)) {
+if (!class_exists("malkusch\autoloader\InstantAutoloader", false)) {
 
     /**
      * An instant autoloader for shipping with project builds

@@ -181,7 +181,7 @@ abstract class Validator
     protected function crossSum($int)
     {
         $sum     = 0;
-        $str_int = (string) $int;
+        $str_int = (string)$int;
         for ($i = 0; $i < strlen($str_int); $i++) {
             //$sum = bcadd($str_int{$i}, $sum);
             $sum += $str_int{$i};
@@ -196,7 +196,7 @@ abstract class Validator
      */
     protected function normalizeAccount($size)
     {
-        $account = (string) $this->account;
+        $account = (string)$this->account;
         if (strlen($account) > $size) {
             throw new ValidatorOutOfBoundsException("Can't normalize $account to size $size.");
 
@@ -230,7 +230,7 @@ abstract class Validator
 
         }
         $accountPart = ltrim(substr($account, 2), '0');
-        $eser        = $blzPart.$account{0}.$account{1}.$accountPart;
+        $eser        = $blzPart . $account{0} . $account{1} . $accountPart;
 
         return $eser;
     }
@@ -262,7 +262,7 @@ abstract class Validator
         $p            = $account{2};
         $accountTail  = ltrim(substr($account, 3), '0');
 
-        $eser = $blzPart0.$t.$blzPart1.$accountPart0.$p.$accountTail;
+        $eser = $blzPart0 . $t . $blzPart1 . $accountPart0 . $p . $accountTail;
         return $eser;
     }
 
@@ -278,7 +278,7 @@ abstract class Validator
 
     protected function isBetween($a, $b)
     {
-        $account = (int) ltrim($this->account, '0');
+        $account = (int)ltrim($this->account, '0');
 
         return $a < $b
              ? $account >= $a && $account <= $b

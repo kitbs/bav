@@ -39,7 +39,7 @@ class Validator59 extends Validator00
          */
         $trimedAccount = ltrim($this->account, "0");
         if (strlen($trimedAccount) < 9) {
-            return ! empty($trimedAccount) && true;
+            return !empty($trimedAccount) && true;
 
         }
         return parent::getResult();

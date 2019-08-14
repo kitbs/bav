@@ -55,7 +55,7 @@ class ValidatorB8 extends ValidatorChain
         }
         $set1 = substr($this->account, 0, 2);
         $set2 = substr($this->account, 0, 3);
-        return ($set1 >= 51  && $set1 <= 59)
+        return ($set1 >= 51 && $set1 <= 59)
             || ($set2 >= 901 && $set2 <= 910);
     }
 }

@@ -45,7 +45,7 @@ class AutomaticUpdatePlan extends UpdatePlan
         $isNotice = $this->notice;
         $lock = new Lock(self::UPDATE_LOCK);
         $lock->nonblockingExecuteOnce(
-            function () use ($backend, $isNotice) {
+            function() use ($backend, $isNotice) {
                 $backend->update();
                 if ($isNotice) {
                     trigger_error("bav's bank data was updated sucessfully.", E_USER_NOTICE);

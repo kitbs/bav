@@ -107,7 +107,7 @@ class FileParser
             . DIRECTORY_SEPARATOR . "data"
             . DIRECTORY_SEPARATOR . "banklist.txt";
 
-        $this->file = is_null($file) ? $defaultFile: $file;
+        $this->file = is_null($file) ? $defaultFile : $file;
 
         $this->encoding = ConfigurationRegistry::getConfiguration()->getEncoding();
     }
@@ -123,8 +123,8 @@ class FileParser
 
         }
         $this->fp = @fopen($this->file, 'r');
-        if (! is_resource($this->fp)) {
-            if (! file_exists($this->file)) {
+        if (!is_resource($this->fp)) {
+            if (!file_exists($this->file)) {
                 throw new FileParserNotExistsException($this->file);
 
             } else {
@@ -136,7 +136,7 @@ class FileParser
 
 
         $dummyLine = fgets($this->fp);
-        if (! $dummyLine) {
+        if (!$dummyLine) {
             throw new FileParserIOException();
 
         }
@@ -144,7 +144,7 @@ class FileParser
 
         clearstatcache(); // filesize() seems to be 0 sometimes
         $filesize = filesize($this->file);
-        if (! $filesize) {
+        if (!$filesize) {
             throw new FileParserIOException(
                 "Could not read filesize for '$this->file'."
             );

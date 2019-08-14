@@ -58,7 +58,7 @@ class ValidatorChain extends Validator
     protected function getResult()
     {
         foreach ($this->validators as $validator) {
-            if (! $this->continueValidation($validator)) {
+            if (!$this->continueValidation($validator)) {
                 return false;
 
             }

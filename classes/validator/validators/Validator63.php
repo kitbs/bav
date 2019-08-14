@@ -44,7 +44,7 @@ class Validator63 extends WeightedIterationValidator
             return false;
 
         }
-        return parent::isValid(ltrim($account.'00', '0'));
+        return parent::isValid(ltrim($account . '00', '0'));
     }
 
     protected function iterationStep()

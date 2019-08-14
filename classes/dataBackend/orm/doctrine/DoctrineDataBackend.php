@@ -127,7 +127,7 @@ class DoctrineDataBackend extends SQLDataBackend
 
     public function update()
     {
-        $this->em->transactional(function (EntityManager $em) {
+        $this->em->transactional(function(EntityManager $em) {
             
             // Download data
             $fileUtil = new FileUtil();
@@ -189,11 +189,11 @@ class DoctrineDataBackend extends SQLDataBackend
         $agencies = array();
         $backend = $this;
         $em = $this->em;
-        $this->em->transactional(function () use (&$agencies, $sql, $backend, $em) {
+        $this->em->transactional(function() use (&$agencies, $sql, $backend, $em) {
             $stmt = $em->getConnection()->executeQuery($sql);
             
             foreach ($stmt as $result) {
-                if (! array_key_exists('id', $result)) {
+                if (!array_key_exists('id', $result)) {
                     throw new MissingAttributesDataBackendIOException();
 
                 }

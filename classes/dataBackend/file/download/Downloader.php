@@ -25,7 +25,7 @@ class Downloader
     public function __construct()
     {
         $this->handle = curl_init();
-        if (! is_resource($this->handle)) {
+        if (!is_resource($this->handle)) {
             throw new DownloaderException("Failed initializing curl");
 
         }
@@ -68,7 +68,7 @@ class Downloader
         curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, true);
 
         $content = $this->download($uri);
-        if (! $content) {
+        if (!$content) {
             throw new DataBackendIOException("Failed to download '$uri'.");
 
         }
@@ -87,13 +87,13 @@ class Downloader
         $fileUtil = new FileUtil();
         $file = tempnam($fileUtil->getTempDirectory(), "bavdownload");
         $fp   = fopen($file, 'w');
-        if (! ($file && $fp)) {
+        if (!($file && $fp)) {
             throw new DownloaderException("Failed opening a temporary file");
 
         }
         curl_setopt($this->handle, CURLOPT_FILE, $fp);
 
-        if (! $this->download($uri)) {
+        if (!$this->download($uri)) {
             fclose($fp);
             unlink($file);
             throw new DownloaderException(curl_error($this->handle), curl_errno($this->handle));

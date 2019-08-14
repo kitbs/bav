@@ -64,7 +64,7 @@ class ValidatorD1 extends Validator
     protected function validate()
     {
         $transformationIndex = $this->getTransformationIndex();
-        if (! array_key_exists($transformationIndex, self::$transformation)) {
+        if (!array_key_exists($transformationIndex, self::$transformation)) {
             return;
 
         }

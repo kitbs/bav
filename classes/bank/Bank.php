@@ -95,7 +95,7 @@ class Bank
      */
     public function getBankID()
     {
-        return (string) $this->bankID;
+        return (string)$this->bankID;
     }
 
     /**

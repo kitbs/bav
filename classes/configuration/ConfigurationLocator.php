@@ -40,12 +40,12 @@ class ConfigurationLocator
     {
         foreach ($this->paths as $path) {
             $resolvedPath = stream_resolve_include_path($path);
-            if (! $resolvedPath) {
+            if (!$resolvedPath) {
                 continue;
                 
             }
             $configuration = require $resolvedPath;
-            if (! $configuration instanceof Configuration) {
+            if (!$configuration instanceof Configuration) {
                 throw new ConfigurationException(
                     "$resolvedPath must return a malkusch\\bav\\Configuration object."
                 );

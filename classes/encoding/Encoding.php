@@ -23,7 +23,7 @@ abstract class Encoding
      */
     public function __construct($encoding = 'UTF-8')
     {
-        if (! $this->isSupported($encoding)) {
+        if (!$this->isSupported($encoding)) {
             throw new UnsupportedEncodingException($encoding);
 
         }

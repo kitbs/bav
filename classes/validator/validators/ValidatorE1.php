@@ -50,6 +50,6 @@ class ValidatorE1 extends WeightedIterationValidator
             return false;
 
         }
-        return (string) $result === $this->getCheckNumber();
+        return (string)$result === $this->getCheckNumber();
     }
 }

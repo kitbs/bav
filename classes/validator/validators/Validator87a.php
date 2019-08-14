@@ -35,9 +35,9 @@ class Validator87a extends Validator
     {
     }
 
-     /**
-     * @return bool
-     */
+        /**
+         * @return bool
+         */
     protected function getResult()
     {
         $accountID = $this->account;
@@ -51,7 +51,7 @@ class Validator87a extends Validator
         $konto  = array();
 
         for ($i = 0; $i < strlen($accountID); $i++) {
-            $konto[$i+1] = $accountID{$i};
+            $konto[$i + 1] = $accountID{$i};
         }
 
         $i = 4;
@@ -102,7 +102,7 @@ class Validator87a extends Validator
                     if ($c2 == 0) {
                         $c2 = 1;
                         $d2 = 0;
-                        $a5 = $a5 - 6 + ($konto[$i] -6);
+                        $a5 = $a5 - 6 + ($konto[$i] - 6);
                     } else {
                         $c2 = 0;
                         $d2 = 1;

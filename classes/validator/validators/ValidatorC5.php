@@ -111,6 +111,6 @@ class ValidatorC5 extends Validator
      */
     protected function getResult()
     {
-        return ! is_null($this->validator) && $this->validator->isValid($this->account);
+        return !is_null($this->validator) && $this->validator->isValid($this->account);
     }
 }

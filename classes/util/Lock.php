@@ -35,7 +35,7 @@ class Lock
         $lockFile = $fileUtil->getTempDirectory() . DIRECTORY_SEPARATOR . $name;
 
         $this->handle = fopen($lockFile, "w");
-        if (! is_resource($this->handle)) {
+        if (!is_resource($this->handle)) {
             throw new LockException("Could not open lock file $lockFile.");
 
         }
@@ -54,7 +54,7 @@ class Lock
         $isBlocked = $this->checkedLock();
         $error = null;
         try {
-            if (! $isBlocked) {
+            if (!$isBlocked) {
                 call_user_func($task);
 
             }
@@ -63,7 +63,7 @@ class Lock
 
         }
         $this->unlock();
-        if (! is_null($error)) {
+        if (!is_null($error)) {
             throw $error;
 
         }
@@ -79,7 +79,7 @@ class Lock
      */
     public function nonblockingExecuteOnce(\Closure $task)
     {
-        if (! $this->nonblockingLock()) {
+        if (!$this->nonblockingLock()) {
             return;
 
         }
@@ -92,7 +92,7 @@ class Lock
 
         }
         $this->unlock();
-        if (! is_null($error)) {
+        if (!is_null($error)) {
             throw $error;
 
         }
@@ -105,7 +105,7 @@ class Lock
      */
     public function lock()
     {
-        if (! flock($this->handle, LOCK_EX)) {
+        if (!flock($this->handle, LOCK_EX)) {
             throw new LockException("flock() failed for {$this->name}.");
 
         }
@@ -129,7 +129,7 @@ class Lock
      */
     public function checkedLock()
     {
-        $isLocked = ! flock($this->handle, LOCK_EX | LOCK_NB);
+        $isLocked = !flock($this->handle, LOCK_EX | LOCK_NB);
         if ($isLocked) {
             $this->lock();
 
@@ -142,7 +142,7 @@ class Lock
      */
     public function unlock()
     {
-        if (! flock($this->handle, LOCK_UN)) {
+        if (!flock($this->handle, LOCK_UN)) {
             throw new LockException("flock() failed releasing {$this->name}.");
 
         }

@@ -53,7 +53,7 @@ class FileUtil
         $tempFileOnSameFS = "$destination.tmp";
 
         $isCopied = copy($source, $tempFileOnSameFS);
-        if (! $isCopied) {
+        if (!$isCopied) {
             throw new FileException(
                 "failed to copy $source to $tempFileOnSameFS."
             );
@@ -61,13 +61,13 @@ class FileUtil
         }
 
         $isUnlinked = unlink($source);
-        if (! $isUnlinked) {
+        if (!$isUnlinked) {
             trigger_error("Failed to unlink $source.");
 
         }
 
         $isRenamed = rename($tempFileOnSameFS, $destination);
-        if (! $isRenamed) {
+        if (!$isRenamed) {
             throw new FileException(
                 "failed to rename $tempFileOnSameFS to $destination."
             );
@@ -84,7 +84,7 @@ class FileUtil
      */
     public function getTempDirectory()
     {
-        if (! is_null($this->configuration->getTempDirectory())) {
+        if (!is_null($this->configuration->getTempDirectory())) {
             return $this->configuration->getTempDirectory();
 
         }
@@ -104,9 +104,9 @@ class FileUtil
     {
         $tmpDirs = array(
             function_exists('sys_get_temp_dir') ? sys_get_temp_dir() : false,
-            empty($_ENV['TMP'])    ? false : $_ENV['TMP'],
+            empty($_ENV['TMP']) ? false : $_ENV['TMP'],
             empty($_ENV['TMPDIR']) ? false : $_ENV['TMPDIR'],
-            empty($_ENV['TEMP'])   ? false : $_ENV['TEMP'],
+            empty($_ENV['TEMP']) ? false : $_ENV['TEMP'],
             ini_get('upload_tmp_dir'),
             '/tmp',
             __DIR__ . "/../../data/"
