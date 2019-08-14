@@ -8,7 +8,7 @@
  * @see DataBackend
  */
 
-namespace malkusch\bav;
+namespace Malkusch\BAV;
 
 require_once __DIR__ . "/../autoloader/autoloader.php";
 
