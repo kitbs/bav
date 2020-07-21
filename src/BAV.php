@@ -2,6 +2,14 @@
 
 namespace Malkusch\BAV;
 
+use Malkusch\BAV\Configuration\ConfigurationRegistry;
+
+use Malkusch\BAV\DataBackend\Exception\BankNotFoundException;
+
+use Malkusch\BAV\Util\BICUtil;
+
+use Malkusch\BAV\Validator\ContextValidation;
+
 /**
  * Facade for BAV's API.
  *
